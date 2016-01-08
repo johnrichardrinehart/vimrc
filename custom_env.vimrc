@@ -43,7 +43,6 @@ endif
 set lines=20 columns=80
 nmap <F2> :wa<CR>:mksession! $HOME/vim_session<CR> " Write session to file
 nmap <F3> :wa<CR>:source $HOME/vim_session<CR> " Load session from file
-
 " The below is from http://vim.wikia.com/wiki/Nice_window_resizing
 " Map F1 for gvim window resizing.
 " Put this snippet of code in your vimrc for nice window resizing.
