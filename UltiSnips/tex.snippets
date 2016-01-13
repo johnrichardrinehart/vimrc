@@ -1,0 +1,61 @@
+extends latextemplate
+
+snippet skel "LaTeX Skeleton" i
+\documentclass{${1:article}}
+\begin{document}
+$0
+\end{document}
+endsnippet
+
+snippet $ "Inline Math Mode" i
+$ ${1:Math here} $ $0
+endsnippet
+
+snippet e^ "Math Mode" i
+e^{${1:Exponent}} $0 
+endsnippet
+
+snippet \[ "Display Math Mode" i
+\[
+	${1:Math here}
+\]
+
+$0
+endsnippet
+
+# Requires the commmath package
+snippet der "derivative" w
+\od{${1:num}}{${2:den}} $0
+endsnippet
+
+# Requires the commmath package
+snippet parder "partial derivative" w
+\pd{${1:num}}{${2:den}} $0
+endsnippet
+
+snippet vec "Vector" w
+\vec{${1:vector}} $0
+endsnippet
+
+snippet uvec "Unit Vector" w
+\hat{${1:vector}} $0
+endsnippet
+
+# Requires the Braket package
+snippet bra "Quantum Mechanical Bra" w
+\Bra{${1:\Psi}}$0
+endsnippet
+
+# Requires the Braket package
+snippet ket "Quantum Mechanical Ket" w
+\Ket{${1:\Psi}}$0
+endsnippet
+
+# Requires the Braket package
+snippet braket "Quantum Mechanical Braket" w
+\Braket{${1:\Psi}}$0
+endsnippet
+
+snippet sq "Quantum Mechanical Braket" w
+\sqrt{${1:stuff}}$0
+endsnippet
