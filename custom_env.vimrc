@@ -45,6 +45,9 @@ nmap <F2> :wa<CR>:mksession! $HOME/vim_session<CR> " Write session to file
 nmap <F3> :wa<CR>:source $HOME/vim_session<CR> " Load session from file
 " Remove the @ symbol from the margin when the lines are too long
 set display+=lastline
+" Autosave LaTeX files after so much time editing
+set updatetime=1000 " milliseconds
+autocmd CursorHold,CursorHoldI *.tex silent update
 " The below is from http://vim.wikia.com/wiki/Nice_window_resizing
 " Map F1 for gvim window resizing.
 " Put this snippet of code in your vimrc for nice window resizing.

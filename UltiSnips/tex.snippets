@@ -8,12 +8,12 @@ $0
 endsnippet
 
 snippet $ "Inline Math Mode" i
-$ ${1:Math here} $ $0
+$ ${1:Math here} $$0
 endsnippet
 
-snippet e^ "Math Mode" i
-e^{${1:Exponent}} $0 
-endsnippet
+#snippet e^ "Exponential Superscript" w
+#e^{${1:Exponent}} $0 
+#endsnippet
 
 snippet \[ "Display Math Mode" i
 \[
@@ -58,4 +58,27 @@ endsnippet
 
 snippet sq "Quantum Mechanical Braket" w
 \sqrt{${1:stuff}}$0
+endsnippet
+
+snippet _ "Subscript" i
+_{${1:sub}}$0
+endsnippet
+
+snippet ^ "Subscript" i
+^{${1:sup}}$0
+endsnippet
+
+snippet eqn "Equation" w
+${1:LHS} = ${0:RHS}
+endsnippet
+
+snippet aleqn "Equation" w
+${1:LHS} =& ${0:RHS}
+endsnippet
+
+snippet al* "Align" i
+\begin{align*}
+${2:aleqn}$1
+\end{align*}
+$0
 endsnippet
