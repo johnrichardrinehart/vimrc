@@ -1,5 +1,7 @@
-""" John's vimrc setting
-" set shellslash
+"<<<< John's vimrc settings >>>>"
+" Put plugins and dictionaries in this dir (also on Windows)
+filetype plugin indent on
+set shellslash
 set nocompatible
 let g:tex_flavor='latex'
 nnoremap <silent> <Leader>` :let @/=""<CR>
@@ -14,6 +16,7 @@ set foldcolumn=4
 set number
 set numberwidth=4
 autocmd Filetype css setlocal softtabstop=2
+autocmd BufNewFile,BufRead *.tikz set filetype=tex " type(TiKZ) = type(TeX)
 set expandtab
 set tabstop=3
 set shiftwidth=3
@@ -27,7 +30,8 @@ set background=light
 colorscheme solarized
 set timeoutlen=300
 set backspace=indent,eol,start
-autocmd BufNewFile,BufRead *.tex,*.rst,*.txt,*.md set spell spelllang=en_us
+autocmd BufNewFile,BufRead *.tex,*.rst,*.txt,*.md setlocal spell spelllang=en_us
+autocmd BufNewFile,BufRead *.tikz setlocal tabstop=2 shiftwidth=2 softtabstop=2
 if has("multi_byte")
   if &termencoding == ""
     let &termencoding = &encoding
@@ -46,14 +50,15 @@ nmap <F3> :wa<CR>:source $HOME/vim_session<CR> " Load session from file
 " Remove the @ symbol from the margin when the lines are too long
 set display+=lastline
 " Autosave LaTeX files after so much time editing
-set updatetime=1000 " milliseconds
-autocmd CursorHold,CursorHoldI *.tex silent update
-" The below is from http://vim.wikia.com/wiki/Nice_window_resizing
+" set updatetime=1000 " milliseconds
+" autocmd CursorHold,CursorHoldI *.tex silent update
+" src:  http://vim.wikia.com/wiki/Nice_window_resizing
 " Map F1 for gvim window resizing.
-" Put this snippet of code in your vimrc for nice window resizing.
-" Press F1 key to toggle between the three settings.
 nmap <F1> :call ResizeWindow()<CR>
 imap <F1> <Esc><F1>a| " for insert mode
+" Use HTML Tidy to tidy up my html in visual mode
+vmap <Leader>x :!tidy -q -i --show-errors 0<CR>
+" Allow the gvim window to take on different sizes with <F1>
 function! ResizeWindow()
   if (has("gui_running"))
     if s:selectedsize == 1
@@ -76,3 +81,10 @@ function! ResizeWindow()
 endfunction
 let s:selectedsize=1
 call ResizeWindow()
+" Allow for persistent undo
+" src: http://stackoverflow.com/questions/5700389/using-vims-persistent-undo
+" Keep undo history across sessions by storing it in a file
+if has('persistent_undo')
+    let &undodir = expand('~/vimfiles/undodir')
+    set undofile
+endif

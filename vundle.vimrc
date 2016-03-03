@@ -12,15 +12,17 @@ Plugin 'honza/vim-snippets'
 Plugin 'SirVer/ultisnips'
 Plugin 'tpope/vim-surround'
 Plugin 'yegappan/mru'
-Plugin 'ervandew/supertab'
 Plugin 'artur-shaik/vim-javacomplete2'
 Plugin 'fatih/vim-go'
 Plugin 'scrooloose/nerdtree'
 Plugin 'mattn/emmet-vim'
+Plugin 'tmhedberg/matchit'
+" Unused plugins below
+"Plugin 'ervandew/supertab'
+"Plugin 'othree/xml.vim'
 " Plugin 'JuliaLang/julia-vim'
 "Plugin 'YCM',{'pinned':1}
 "Plugin 'Shougo/neocomplete.vim'
 "Plugin 'xolox/vim-misc'
 "Plugin 'xolox/vim-shell'
 call vundle#end() " required
-filetype plugin indent on
