@@ -1,5 +1,6 @@
 "<<<< John's vimrc settings >>>>"
 " Put plugins and dictionaries in this dir (also on Windows)
+let did_install_default_menus = 1
 filetype plugin indent on
 set shellslash
 set nocompatible
