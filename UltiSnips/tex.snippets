@@ -76,9 +76,23 @@ snippet aleqn "Equation" w
 ${1:LHS} =& ${0:RHS}
 endsnippet
 
+snippet al "Align" i
+\begin{align}
+${2:aleqn}$1
+\end{align}
+endsnippet
+
 snippet al* "Align" i
 \begin{align*}
 ${2:aleqn}$1
 \end{align*}
 $0
+endsnippet
+
+snippet t "\text{}" i
+\text{${1:text}}$0
+endsnippet
+
+snippet trm "\text{}" i
+\textrm{${1:text}}$0
 endsnippet

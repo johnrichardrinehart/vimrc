@@ -17,6 +17,8 @@ Plugin 'fatih/vim-go'
 Plugin 'scrooloose/nerdtree'
 Plugin 'mattn/emmet-vim'
 Plugin 'tmhedberg/matchit'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 " Unused plugins below
 "Plugin 'ervandew/supertab'
 "Plugin 'othree/xml.vim'

@@ -1,6 +1,10 @@
 "<<<< John's vimrc settings >>>>"
 " Put plugins and dictionaries in this dir (also on Windows)
-let did_install_default_menus = 1
+" cd $HOME
+" The below did_install_default_menus was added because at some point I
+" was getting a menu.vim error at startup
+" let did_install_default_menus = 1
+set laststatus=2 " Turn on status bar even for no splits
 filetype plugin indent on
 set shellslash
 set nocompatible
