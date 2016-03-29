@@ -49,7 +49,6 @@ setglobal guioptions=
 if has('gui_running')
     set guifont=Consolas:h10:cANSI
 endif
-set lines=20 columns=80
 nmap <F2> :wa<CR>:mksession! $HOME/vim_session<CR> " Write session to file
 nmap <F3> :wa<CR>:source $HOME/vim_session<CR> " Load session from file
 " Remove the @ symbol from the margin when the lines are too long
@@ -63,33 +62,40 @@ nmap <F1> :call ResizeWindow()<CR>
 imap <F1> <Esc><F1>a| " for insert mode
 " Use HTML Tidy to tidy up my html in visual mode
 vmap <Leader>x :!tidy -q -i --show-errors 0<CR>
+
+if has('win32') && has('gui_running')
+   "Below commented 'set lines' doesn't work with PuTTY in console vim
+   set lines=20 columns=80
+endif
+
 " Allow the gvim window to take on different sizes with <F1>
 function! ResizeWindow()
-  if (has("gui_running"))
-    if s:selectedsize == 1
-      let s:selectedsize = 2
-      set number
-      set columns=88 " 88 is exactly 80 with :set number
-      set lines=35
-    elseif s:selectedsize == 2
-      set number
-      let s:selectedsize = 3
-      set columns=98
-      set lines=45
-    else " old school console goodness
-      let s:selectedsize = 1
-      set nonumber
-      set columns=120
-      set lines=60
-    endif
-  endif
+   if (has("gui_running"))
+      if s:selectedsize == 1
+         let s:selectedsize = 2
+         set number
+         set columns=88 " 88 is exactly 80 with :set number
+         set lines=35
+      elseif s:selectedsize == 2
+         set number
+         let s:selectedsize = 3
+         set columns=98
+         set lines=45
+      else " old school console goodness
+         let s:selectedsize = 1
+         set nonumber
+         set columns=120
+         set lines=60
+      endif
+   endif
 endfunction
+
 let s:selectedsize=1
 call ResizeWindow()
 " Allow for persistent undo
 " src: http://stackoverflow.com/questions/5700389/using-vims-persistent-undo
 " Keep undo history across sessions by storing it in a file
 if has('persistent_undo')
-    let &undodir = expand('~/vimfiles/undodir')
-    set undofile
+   let &undodir = expand('~/vimfiles/undodir')
+   set undofile
 endif
