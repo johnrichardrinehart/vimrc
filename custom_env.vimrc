@@ -6,7 +6,7 @@
 " let did_install_default_menus = 1
 set laststatus=2 " Turn on status bar even for no splits
 filetype plugin indent on
-set shellslash
+"set shellslash
 set nocompatible
 let g:tex_flavor='latex'
 nnoremap <silent> <Leader>` :let @/=""<CR>
@@ -38,16 +38,16 @@ set backspace=indent,eol,start
 autocmd BufNewFile,BufRead *.tex,*.rst,*.txt,*.md setlocal spell spelllang=en_us
 autocmd BufNewFile,BufRead *.tikz setlocal tabstop=2 shiftwidth=2 softtabstop=2
 if has("multi_byte")
-  if &termencoding == ""
-    let &termencoding = &encoding
-  endif
-  set encoding=utf-8
-  setglobal fileencoding=utf-8
+   if &termencoding == ""
+      let &termencoding = &encoding
+   endif
+   set encoding=utf-8
+   setglobal fileencoding=utf-8
 endif
 set autochdir
 setglobal guioptions=
 if has('gui_running')
-    set guifont=Consolas:h10:cANSI
+   set guifont=Consolas:h10:cANSI
 endif
 nmap <F2> :wa<CR>:mksession! $HOME/vim_session<CR> " Write session to file
 nmap <F3> :wa<CR>:source $HOME/vim_session<CR> " Load session from file
