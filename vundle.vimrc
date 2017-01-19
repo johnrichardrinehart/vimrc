@@ -2,8 +2,8 @@
 set nocompatible
 filetype off " required
 " set the runtime path to include Vundle and initialize
-set rtp+=$HOME/vimfiles/bundle/Vundle.vim
-call vundle#begin('$HOME/vimfiles/bundle')
+exec "set rtp+=" . expand(vimdir) . "/bundle/Vundle.vim"
+call vundle#begin(expand(vimdir).'/bundle')
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 " let Vundle manage Vundle, required
@@ -13,7 +13,6 @@ Plugin 'honza/vim-snippets'
 Plugin 'SirVer/ultisnips'
 Plugin 'tpope/vim-surround'
 Plugin 'yegappan/mru'
-"Plugin 'artur-shaik/vim-javacomplete2'
 Plugin 'fatih/vim-go'
 Plugin 'scrooloose/nerdtree'
 Plugin 'mattn/emmet-vim'
@@ -22,16 +21,10 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'scrooloose/nerdcommenter'
-" Unused plugins below
-"Plugin 'ervandew/supertab'
-"Plugin 'othree/xml.vim'
 Plugin 'JuliaLang/julia-vim'
-"Plugin 'YCM',{'pinned':1}
 Plugin 'Shougo/neocomplete.vim'
-"Plugin 'xolox/vim-misc'
-"Plugin 'xolox/vim-shell'
 Plugin 'jpalardy/vim-slime'
-Plugin 'chriskempson/base16-vim'
 Plugin 'elzr/vim-json'
 Plugin 'vim-scripts/zoom.vim'
+" Unused plugins below
 call vundle#end() " required

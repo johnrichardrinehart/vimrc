@@ -9,7 +9,6 @@ set laststatus=2 " Turn on status bar even for no splits
 set splitbelow
 filetype plugin indent on
 "set shellslash
-set nocompatible
 let g:tex_flavor='latex'
 nnoremap <silent> <Leader>` :let @/=""<CR>
 set incsearch
@@ -33,11 +32,13 @@ syntax enable
 set backupext=.bak
 syntax enable
 let g:solarized_termtrans=1
-set background=light
-colorscheme base16-bright
+set background=dark
+"colorscheme base16-bright
+"let base16colorspace=256
 set timeoutlen=300
 set backspace=indent,eol,start
 autocmd BufNewFile,BufRead *.tex,*.rst,*.txt,*.md setlocal spell spelllang=en_us
+autocmd BufNewFile,BufRead *.tex,*.rst,*.txt,*.md setlocal spellfile=
 autocmd BufNewFile,BufRead *.tikz setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType julia nnoremap <buffer> <F9> :!start /b julia %<return>
 if has("multi_byte")

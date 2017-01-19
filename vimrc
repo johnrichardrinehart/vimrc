@@ -1,9 +1,14 @@
-source $HOME/vimfiles/vundle.vimrc
-source $HOME/vimfiles/custom_env.vimrc
-source $HOME/vimfiles/ultisnips.vimrc
-source $HOME/vimfiles/vimtex.vimrc
-source $HOME/vimfiles/java.vimrc
-source $HOME/vimfiles/go.vimrc
-source $HOME/vimfiles/julia.vimrc
-source $HOME/vimfiles/neocomplete.vimrc
-source $HOME/vimfiles/vim-javacomplete2.vimrc
+if has("win32")
+	let vimdir="~/vimfiles"
+else
+	let vimdir="~/.vim"
+endif
+exec "source " . expand(vimdir) . "/vundle.vimrc"
+exec "source " . expand(vimdir) . "/custom_env.vimrc"
+exec "source " . expand(vimdir) . "/ultisnips.vimrc"
+exec "source " . expand(vimdir) . "/vimtex.vimrc"
+exec "source " . expand(vimdir) . "/java.vimrc"
+exec "source " . expand(vimdir) . "/go.vimrc"
+exec "source " . expand(vimdir) . "/julia.vimrc"
+exec "source " . expand(vimdir) . "/neocomplete.vimrc"
+exec "source " . expand(vimdir) . "/vim-javacomplete2.vimrc"
