@@ -1,4 +1,5 @@
 """ Vundle settings below
+set nocompatible
 filetype off " required
 " set the runtime path to include Vundle and initialize
 set rtp+=$HOME/vimfiles/bundle/Vundle.vim
