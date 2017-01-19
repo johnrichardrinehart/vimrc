@@ -12,7 +12,7 @@ $ ${1:Math here} $$0
 endsnippet
 
 #snippet e^ "Exponential Superscript" w
-#e^{${1:Exponent}} $0 
+#e^{${1:Exponent}} $0
 #endsnippet
 
 snippet \[ "Display Math Mode" i
@@ -78,7 +78,7 @@ endsnippet
 
 snippet al "Align" i
 \begin{align}
-${2:aleqn}$1
+$1 ${2:aleqn}
 \end{align}
 endsnippet
 
@@ -95,4 +95,48 @@ endsnippet
 
 snippet trm "\text{}" w
 \textrm{${1:text}}$0
+endsnippet
+
+snippet exp "\exp{}" w
+\exp($1)$0
+endsnippet
+
+snippet timeavg "overline" w
+\overline{${1:x}(${2:t})}$0
+endsnippet
+
+snippet ensavg "ensemble average" w
+\langle ${1:x}(${2:t}) ${3:else} \rangle$0
+endsnippet
+
+snippet corr "correlation" w
+\langle ${1:x}(${2:t_1}) ${1:x}(${2:t_2}) \rangle$0
+endsnippet
+
+snippet homeworkProblem "hw prob" w
+\begin{homeworkProblem}
+$0
+\end{homeworkProblem}
+endsnippet
+
+snippet mc "\mathcal{}" w
+\mathcal{$1}$0
+endsnippet
+
+snippet env "new environment" w
+\begin{${1:environment}}
+$0
+\end{$1}
+endsnippet
+
+snippet bf "bold font" w
+\textbf{${1:text}}$0
+endsnippet
+
+snippet it "bold font" w
+\textit{${1:text}}$0
+endsnippet
+
+snippet ident "Identity" w
+\mathds{1}$0
 endsnippet

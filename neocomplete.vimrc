@@ -34,7 +34,7 @@ return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
 "return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
 " <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><C-S-Space> pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
@@ -78,10 +78,10 @@ let g:neocomplete#sources#omni#input_patterns.perl =
 \ '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
 
 " For smart TAB completion.
-"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
-"        \ <SID>check_back_space() ? "\<TAB>" :
-"        \ neocomplete#start_manual_complete()
-"  function! s:check_back_space() "{{{
-"    let col = col('.') - 1
-"    return !col || getline('.')[col - 1]  =~ '\s'
-"  endfunction"}}}
+""inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
+""        \ <SID>check_back_space() ? "\<TAB>" :
+""        \ neocomplete#start_manual_complete()
+""  function! s:check_back_space() "{{{
+""    let col = col('.') - 1
+""    return !col || getline('.')[col - 1]  =~ '\s'
+""  endfunction"}}}

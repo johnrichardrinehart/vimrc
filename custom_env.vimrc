@@ -1,10 +1,12 @@
 "<<<< John's vimrc settings >>>>"
 " Put plugins and dictionaries in this dir (also on Windows)
+
 cd $HOME
 " The below did_install_default_menus was added because at some point I
 " was getting a menu.vim error at startup
 " let did_install_default_menus = 1
 set laststatus=2 " Turn on status bar even for no splits
+set splitbelow
 filetype plugin indent on
 "set shellslash
 set nocompatible
@@ -32,11 +34,12 @@ set backupext=.bak
 syntax enable
 let g:solarized_termtrans=1
 set background=light
-colorscheme solarized
+colorscheme base16-bright
 set timeoutlen=300
 set backspace=indent,eol,start
 autocmd BufNewFile,BufRead *.tex,*.rst,*.txt,*.md setlocal spell spelllang=en_us
 autocmd BufNewFile,BufRead *.tikz setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType julia nnoremap <buffer> <F9> :!start /b julia %<return>
 if has("multi_byte")
    if &termencoding == ""
       let &termencoding = &encoding
@@ -45,7 +48,7 @@ if has("multi_byte")
    setglobal fileencoding=utf-8
 endif
 set autochdir
-setglobal guioptions=
+set guioptions=
 if has('gui_running')
    set guifont=Consolas:h10:cANSI
 endif
@@ -63,10 +66,10 @@ imap <F1> <Esc><F1>a| " for insert mode
 " Use HTML Tidy to tidy up my html in visual mode
 vmap <Leader>x :!tidy -q -i --show-errors 0<CR>
 
-if has('win32') && has('gui_running')
-   "Below commented 'set lines' doesn't work with PuTTY in console vim
-   set lines=20 columns=80
-endif
+"if has('win32') && has('gui_running')
+"   "Below commented 'set lines' doesn't work with PuTTY in console vim
+""   set lines=20 columns=80
+"endif
 
 " Allow the gvim window to take on different sizes with <F1>
 function! ResizeWindow()
@@ -91,7 +94,7 @@ function! ResizeWindow()
 endfunction
 
 let s:selectedsize=1
-call ResizeWindow()
+"call ResizeWindow()
 " Allow for persistent undo
 " src: http://stackoverflow.com/questions/5700389/using-vims-persistent-undo
 " Keep undo history across sessions by storing it in a file
@@ -99,3 +102,6 @@ if has('persistent_undo')
    let &undodir = expand('~/vimfiles/undodir')
    set undofile
 endif
+
+command DiffOrig vert new | set bt=nofile | r ++edit # | d_
+         \ | diffthis | wincmd p | diffthis
