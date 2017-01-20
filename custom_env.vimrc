@@ -1,5 +1,3 @@
-"<<<< John's vimrc settings >>>>"
-" Put plugins and dictionaries in this dir (also on Windows)
 colors desert
 syntax enable
 filetype plugin indent on
