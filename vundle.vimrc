@@ -27,5 +27,6 @@ Plugin 'jpalardy/vim-slime'
 Plugin 'elzr/vim-json'
 Plugin 'vim-scripts/zoom.vim'
 Plugin 'godlygeek/csapprox'
+Plugin 'chrisbra/csv.vim'
 " Unused plugins below
 call vundle#end() " required
