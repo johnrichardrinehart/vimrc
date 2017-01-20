@@ -1,6 +1,6 @@
 "<<<< John's vimrc settings >>>>"
 " Put plugins and dictionaries in this dir (also on Windows)
-
+colors desert
 cd $HOME
 " The below did_install_default_menus was added because at some point I
 " was getting a menu.vim error at startup
@@ -23,6 +23,7 @@ set number
 set numberwidth=4
 autocmd Filetype css setlocal softtabstop=2
 autocmd BufNewFile,BufRead *.tikz set filetype=tex " type(TiKZ) = type(TeX)
+autocmd BufNewFile,BufRead * hi SpellCap ctermfg=green guifg=green
 set expandtab
 set tabstop=3
 set shiftwidth=3
@@ -30,11 +31,7 @@ set softtabstop=3
 set textwidth=80
 syntax enable
 set backupext=.bak
-syntax enable
-let g:solarized_termtrans=1
 set background=dark
-"colorscheme base16-bright
-"let base16colorspace=256
 set timeoutlen=300
 set backspace=indent,eol,start
 autocmd BufNewFile,BufRead *.tex,*.rst,*.txt,*.md setlocal spell spelllang=en_us

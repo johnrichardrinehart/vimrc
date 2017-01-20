@@ -26,5 +26,6 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'jpalardy/vim-slime'
 Plugin 'elzr/vim-json'
 Plugin 'vim-scripts/zoom.vim'
+Plugin 'godlygeek/csapprox'
 " Unused plugins below
 call vundle#end() " required
