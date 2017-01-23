@@ -2,8 +2,8 @@
 set nocompatible
 filetype off " required
 " set the runtime path to include Vundle and initialize
-exec "set rtp+=" . expand(vimdir) . "/bundle/Vundle.vim"
-call vundle#begin(expand(vimdir).'/bundle')
+exec "set rtp+=" . escape(expand(vimdir),' ')  . "/bundle/Vundle.vim"
+call vundle#begin(expand(expand(vimdir),' ') . '/bundle')
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 " let Vundle manage Vundle, required
