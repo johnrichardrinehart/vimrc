@@ -42,6 +42,7 @@ autocmd FileType julia nnoremap <buffer> <F9> :!start /b julia %<return>
 nmap <F2> :wa<CR>:mksession! $HOME/vim_session<CR> " Write session to file
 nmap <F3> :wa<CR>:source $HOME/vim_session<CR> " Load session from file
 nmap <F1> :call ResizeWindow()<CR>| " src: http://vim.wikia.com/wiki/Nice_window_resizing
+nmap  <F4> :call ToggleCheckForChanges()<CR>
 imap <F1> <Esc><F1>a| " for insert mode
 vmap <Leader>x :!tidy -q -i --show-errors 0<CR>| " Use HTML Tidy
 " Allow for persistent undo
@@ -62,13 +63,13 @@ if has('gui_running')
 endif
 
 " COMMANDS
-command DiffOrig vert new | set bt=nofile | r ++edit # | d_
+command! DiffOrig vert new | set bt=nofile | r ++edit # | d_
          \ | diffthis | wincmd p | diffthis
 
 " FUNCTIONS
 " Allow the gvim window to take on different sizes with <F1>
-function! ResizeWindow()
 let s:selectedsize=1
+function! ResizeWindow()
    if (has("gui_running"))
       if s:selectedsize == 1
          let s:selectedsize = 2
@@ -86,5 +87,18 @@ let s:selectedsize=1
          set columns=120
          set lines=60
       endif
+   endif
+endfunction
+"http://vim.wikia.com/wiki/Suppressing_file_changed_warnings_in_a_specific_buffer
+let s:check_for_changes=1
+function! ToggleCheckForChanges()
+   if s:check_for_changes == 1
+      setlocal autoread
+      let s:check_for_changes = 0
+      echo "No warning about changes."
+   else
+      setlocal autoread<
+      let s:check_for_changes = 1
+      echo "You'll get warnings about changes."
    endif
 endfunction
