@@ -1,3 +1,5 @@
+" Put vim in home
+cd $HOME
 " BASIC SETTINGS
 colors desert
 syntax enable
@@ -10,22 +12,21 @@ set background=dark
 set backspace=indent,eol,start
 set backupext=.bak
 set display+=lastline " removes @ symbol from margin on long lines
-set expandtab
 set foldcolumn=4
+set foldmethod=syntax
 set guioptions=
 set history=50
 set hlsearch
 set incsearch
-set laststatus=2 " Turn on status bar always (even for no splits) 
+set laststatus=2 " Turn on status bar always (even for no splits)
 set number
 set numberwidth=4
 set ruler
-set shiftwidth=3
+" make tabs 4 spaces
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 set showcmd
 set showmode
-set softtabstop=3
 set splitbelow
-set tabstop=3
 set textwidth=80
 set timeoutlen=300
 set wildmenu
@@ -51,7 +52,7 @@ if has('persistent_undo')
    let &undodir = expand('~/vimfiles/undodir') " store undo history in file for persistence
    set undofile
 endif
-if has("multi_byte")
+if has('multi_byte')
    if &termencoding == ""
       let &termencoding = &encoding
    endif
@@ -60,6 +61,9 @@ if has("multi_byte")
 endif
 if has('gui_running')
    set guifont=Consolas:h10:cANSI
+endif
+if has('gui_running') && has('win64')
+   autocmd GUIEnter * call libcallnr('vimtweak64.dll','SetAlpha',250)
 endif
 
 " COMMANDS
@@ -70,7 +74,7 @@ command! DiffOrig vert new | set bt=nofile | r ++edit # | d_
 " Allow the gvim window to take on different sizes with <F1>
 let s:selectedsize=1
 function! ResizeWindow()
-   if (has("gui_running"))
+   if (has('gui_running'))
       if s:selectedsize == 1
          let s:selectedsize = 2
          set number
@@ -101,4 +105,11 @@ function! ToggleCheckForChanges()
       let s:check_for_changes = 1
       echo "You'll get warnings about changes."
    endif
+endfunction
+"http://stackoverflow.com/questions/19430200/how-to-clear-vim-registers-effectively
+function! ClearRegisters()
+   let regs=split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"', '\zs')
+   for r in regs
+      call setreg(r, [])
+   endfor
 endfunction
